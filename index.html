@@ -13,23 +13,17 @@
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            color: #4a4a4a;
+            display: flex; align-items: center; justify-content: center;
+            overflow-x: hidden; color: #4a4a4a;
         }
 
         .container {
-            position: relative;
-            z-index: 10;
-            width: 90%;
-            max-width: 420px;
+            position: relative; z-index: 10;
+            width: 90%; max-width: 420px;
             padding: 40px 20px;
             background: var(--glass);
             backdrop-filter: blur(15px);
@@ -40,141 +34,38 @@
             transition: max-width 0.5s ease;
         }
 
-        .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 15px;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+        .profile-img { width: 110px; height: 110px; border-radius: 50%; border: 4px solid white; margin-bottom: 15px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        #typing { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 5px; }
 
-        #typing {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
+        .message-area { min-height: 120px; margin: 20px 0; }
+        .line { opacity: 0; transform: translateY(10px); transition: 0.8s ease; margin: 8px 0; font-size: 0.95rem; }
 
-        .message-area {
-            min-height: 120px;
-            margin: 20px 0;
-        }
+        .btn-wrapper { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 30px; position: relative; height: 60px; }
+        button { padding: 12px 35px; border-radius: 50px; border: none; cursor: pointer; font-weight: 600; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; }
+        #yesBtn { background: var(--primary); color: white; box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3); z-index: 5; }
+        #noBtn { background: white; color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); z-index: 10; white-space: nowrap; }
+        #openBtn { background: white; color: var(--primary); width: 80%; margin: 0 auto; }
 
-        .line {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: 0.8s ease;
-            margin: 8px 0;
-            font-size: 0.95rem;
-        }
+        #celebration { display: none; animation: popIn 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.27); }
+        .memory-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 25px; }
+        .memory-card { background: white; padding: 8px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transform: rotate(var(--r)); transition: transform 0.3s ease; }
+        .memory-card:hover { transform: rotate(0deg) scale(1.1); z-index: 20; }
+        .memory-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
+        .memory-card p { font-size: 0.75rem; margin: 8px 0 0 0; color: #666; font-weight: 500; }
 
-        .btn-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 30px;
-            position: relative;
-            height: 60px;
-        }
-
-        button {
-            padding: 12px 35px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        #yesBtn {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
-            z-index: 5;
-        }
-
-        #noBtn {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            z-index: 10;
-            white-space: nowrap;
-        }
-
-        #openBtn {
-            background: white;
-            color: var(--primary);
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        /* CELEBRATION & MEMORIES */
-        #celebration {
-            display: none;
-            animation: popIn 0.8s cubic-bezier(0.17, 0.89, 0.32, 1.27);
-        }
-
-        .memory-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .memory-card {
-            background: white;
-            padding: 8px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transform: rotate(var(--r));
-            transition: transform 0.3s ease;
-        }
-
-        .memory-card:hover {
-            transform: rotate(0deg) scale(1.1);
-            z-index: 20;
-        }
-
-        .memory-card img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .memory-card p {
-            font-size: 0.75rem;
-            margin: 8px 0 0 0;
-            color: #666;
-            font-weight: 500;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .floating-heart {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1;
-            animation: floatUp 4s linear forwards;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
-        }
+        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .floating-heart { position: fixed; pointer-events: none; z-index: 1; animation: floatUp 4s linear forwards; }
+        @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
 
 <audio id="bgMusic" loop>
     <source src="https://www.chosic.com/wp-content/uploads/2021/05/Beautiful-Piano.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="yesMusic">
+    <source src="https://www.myinstants.com/media/sounds/happy-birthday-kazoo.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container" id="card">
@@ -209,7 +100,7 @@
             </div>
             <div class="memory-card" style="--r: 2deg;">
                 <img src="Screenshot_20260408_171016_Instagram.jpg" alt="Memory 2">
-                <p>Rember Always laugh Dont ever be Sad in ur life 🌸</p>
+                <p>Always laugh, Don't ever be Sad 🌸</p>
             </div>
             <div class="memory-card" style="--r: -2deg;">
                 <img src="Screenshot_20260408_171042_Instagram.jpg" alt="Memory 3">
@@ -241,7 +132,6 @@
         document.getElementById("bgMusic").play().catch(() => {});
         document.getElementById("openBtn").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
-
         const lines = document.querySelectorAll('.line');
         lines.forEach((line, idx) => {
             setTimeout(() => {
@@ -258,19 +148,21 @@
         const bHeight = btn.offsetHeight;
         const newX = Math.random() * (window.innerWidth - bWidth - padding * 2) + padding;
         const newY = Math.random() * (window.innerHeight - bHeight - padding * 2) + padding;
-
         btn.style.position = "fixed";
         btn.style.left = newX + "px";
         btn.style.top = newY + "px";
     }
 
     function celebrate() {
+        // Switch Audio
+        document.getElementById("bgMusic").pause();
+        document.getElementById("yesMusic").play().catch(() => {});
+
+        // UI Transition
         document.getElementById("mainContent").style.display = "none";
         document.getElementById("pfp").style.display = "none";
         document.getElementById("typing").style.display = "none";
         document.getElementById("celebration").style.display = "block";
-        
-        // Expand the card to fit memories
         document.getElementById("card").style.maxWidth = "500px";
         
         for(let i=0; i<40; i++) {
@@ -288,7 +180,6 @@
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 4000);
     }
-
     setInterval(spawnHeart, 800);
 </script>
 
